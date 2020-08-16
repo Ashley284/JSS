@@ -4,7 +4,7 @@ const { appendFile } = require("fs");
 const path = require("path")
 class ApplyButton extends React.Component {
   render() {
-    if (!this.props.message.content.includes("```js", "```JS")) return <></>;
+    if (!this.props.message.content.includes("```js")) return <></>;
     return (
       <div
         className={["JSSApply", false ? "applied" : ""]
@@ -30,7 +30,7 @@ class ApplyButton extends React.Component {
       `/*\n Snippet ID: ${
         message.id
       }\n Author: ${message.author.username}\n Date Created: Now\n */${
-        this.props.message.content.split("```js", "```JS")[1].split("```")[0]
+        this.props.message.content.split("```js")[1].split("```")[0]
       }`, (err) => {
           if(err) console.error(err)
       }
